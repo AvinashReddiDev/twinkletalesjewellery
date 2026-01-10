@@ -1,0 +1,6 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Shared configuration for workspaces
+# You can add shared dependencies or configuration here

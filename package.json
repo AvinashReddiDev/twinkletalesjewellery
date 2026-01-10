@@ -1,0 +1,20 @@
+{
+  "name": "@twinkletales/root",
+  "version": "1.0.0",
+  "description": "Twinkle Tales Jewellery - Monorepo",
+  "private": true,
+  "packageManager": "pnpm@latest",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint"
+  },
+  "keywords": [
+    "monorepo",
+    "pnpm",
+    "jewellery"
+  ],
+  "author": "",
+  "license": "ISC"
+}
