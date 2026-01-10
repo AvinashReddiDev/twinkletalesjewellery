@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Twinkle Tales Jewellery - Monorepo",
   "private": true,
-  "packageManager": "pnpm@latest",
   "scripts": {
     "dev": "pnpm -r --parallel run dev",
     "build": "pnpm -r run build",
@@ -16,5 +15,6 @@
     "jewellery"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.0"
 }
