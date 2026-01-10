@@ -15,11 +15,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 const csrfProtection = csurf({ cookie: true });
-app.use(csrfProtection);
 
 app.use("/auth", authRoutes);
-app.use("/orders", orderRoutes);
-app.use("/payments", paymentRoutes);
-app.use("/users", userRoutes);
+app.use("/orders", csrfProtection, orderRoutes);
+app.use("/payments", csrfProtection, paymentRoutes);
+app.use("/users", csrfProtection, userRoutes);
 
 export default app;
