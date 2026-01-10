@@ -19,10 +19,10 @@ const orderRateLimiter = rateLimit({
 });
 
 // USER
-router.post("/", authMiddleware, createOrder);
+router.post("/", authMiddleware, orderRateLimiter, createOrder);
 router.get("/me", authMiddleware, orderRateLimiter, getMyOrders);
 
 // ADMIN
-router.get("/", authMiddleware, adminMiddleware, getAllOrders);
+router.get("/", authMiddleware, adminMiddleware, orderRateLimiter, getAllOrders);
 
 export default router;
