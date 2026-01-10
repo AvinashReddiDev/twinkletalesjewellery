@@ -7,14 +7,22 @@ import {
 
 import { authMiddleware } from "../middleware/auth.middleware.js";
 import { adminMiddleware } from "../middleware/admin.middleware.js";
+import rateLimit from "express-rate-limit";
 
 const router = Router();
 
+const orderRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs for this route
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // USER
-router.post("/", authMiddleware, createOrder);
-router.get("/me", authMiddleware, getMyOrders);
+router.post("/", authMiddleware, orderRateLimiter, createOrder);
+router.get("/me", authMiddleware, orderRateLimiter, getMyOrders);
 
 // ADMIN
-router.get("/", authMiddleware, adminMiddleware, getAllOrders);
+router.get("/", authMiddleware, adminMiddleware, orderRateLimiter, getAllOrders);
 
 export default router;
