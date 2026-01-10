@@ -1,0 +1,18 @@
+# Code owners for twinkletalesjewellery monorepo
+
+# Default owners for everything in the repo
+* @avinashReddiDev
+
+# Frontend app owners
+/apps/frontend/ @avinashReddiDev
+
+# Backend service owners
+/apps/service-core/ @avinashReddiDev
+
+# Shared packages owners
+/packages/ @avinashReddiDev
+
+# Root configuration files
+/.github/ @avinashReddiDev
+/package.json @avinashReddiDev
+/pnpm-workspace.yaml @avinashReddiDev
