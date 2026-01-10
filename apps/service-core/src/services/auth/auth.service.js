@@ -8,7 +8,7 @@ import {
 import { v4 as uuid } from "uuid";
 
 export const login = async ({ email, password }) => {
-  const user = users.find(u => u.email === email);
+  const user = users.find((u) => u.email === email);
   if (!user) throw new Error("User not found");
 
   const valid = await bcrypt.compare(password, user.password);

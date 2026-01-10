@@ -10,8 +10,7 @@
     "lint": "pnpm -r run lint",
     "lint:fix": "pnpm -r run lint:fix",
     "format": "pnpm -r run format",
-    "format:check": "pnpm -r run format:check",
-    "prepare": "husky install"
+    "format:check": "pnpm -r run format:check"
   },
   "keywords": [
     "monorepo",
@@ -22,7 +21,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.28.0",
   "devDependencies": {
-    "husky": "^9.1.7",
     "lint-staged": "^15.2.11"
   }
 }
