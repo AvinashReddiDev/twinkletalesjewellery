@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  build-and-lint:
+    name: Build and Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint public-twinkle-tales
+        working-directory: apps/public-twinkle-tales
+        run: |
+          pnpm run lint
+
+      - name: Lint service-core
+        working-directory: apps/service-core
+        run: |
+          pnpm run lint
+
+      - name: Format check (public-twinkle-tales)
+        working-directory: apps/public-twinkle-tales
+        run: |
+          pnpm run format:check
+
+      - name: Format check (service-core)
+        working-directory: apps/service-core
+        run: |
+          pnpm run format:check
+
+      - name: Build all apps
+        run: |
+          pnpm run build
