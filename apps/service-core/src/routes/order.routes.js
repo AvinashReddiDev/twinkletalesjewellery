@@ -23,6 +23,12 @@ router.post("/", authMiddleware, orderRateLimiter, createOrder);
 router.get("/me", authMiddleware, orderRateLimiter, getMyOrders);
 
 // ADMIN
-router.get("/", orderRateLimiter, authMiddleware, adminMiddleware, getAllOrders);
+router.get(
+  "/",
+  orderRateLimiter,
+  authMiddleware,
+  adminMiddleware,
+  getAllOrders
+);
 
 export default router;
